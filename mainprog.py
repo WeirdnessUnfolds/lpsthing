@@ -136,7 +136,8 @@ def main():
                 visited_percentage = len(visited_stations_in_route) / len(stations) * 100
                 if visited_percentage == 100:
                     print(f"{route}:  COMPLETE")
-                print(f"{route}: {len(visited_stations_in_route)} out of {len(stations)} stations visited ({visited_percentage:.2f}%)")
+                else:
+                    print(f"{route}: {len(visited_stations_in_route)} out of {len(stations)} stations visited ({visited_percentage:.2f}%)")
             total_lines = len(route_stations)
             completed_lines = sum(1 for route, stations in route_stations.items() if len(visited_stations.intersection(stations)) == len(stations))
             print(f"Completed lines: {completed_lines} out of {total_lines}")
