@@ -138,7 +138,6 @@ def main():
                     print(f"{route}:  COMPLETE")
                 print(f"{route}: {len(visited_stations_in_route)} out of {len(stations)} stations visited ({visited_percentage:.2f}%)")
             print(f"Completed lines:" + ", ".join(route for route, stations in route_stations.items() if len(visited_stations.intersection(stations)) == len(stations)))
-            print(f"{len(visited_stations)} out of {get_total_stations(data)} stations visited ({visited_percentage:.2f}%)")
         else:
             matching_stations = []
             for name in station_list:
@@ -156,8 +155,8 @@ def main():
                 continue
             elif choice.isdigit() and 1 <= int(choice) <= len(matching_stations):
                 visited_stations.add(matching_stations[int(choice)-1])
-                visited_percentage = len(visited_stations) / get_total_stations(get_route_stations(data)) * 100
-                print(f"{len(visited_stations)} out of {get_total_stations(get_route_stations(data))} stations visited ({visited_percentage:.2f}%)")
+                visited_percentage = len(visited_stations) / get_total_stations(data) * 100
+                print(f"{len(visited_stations)} out of {get_total_stations(data)} stations visited ({visited_percentage:.2f}%)")
 
             else:
                 print("Invalid choice. Please enter a valid number.")
